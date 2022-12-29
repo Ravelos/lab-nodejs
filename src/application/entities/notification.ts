@@ -10,7 +10,7 @@ export interface NotificationProps{
   createdAt: Date;
 }
 
-export class Notificacion {
+export class Notification {
   private props : NotificationProps;
 
   constructor(props : NotificationProps) {
