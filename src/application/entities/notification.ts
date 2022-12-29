@@ -2,7 +2,7 @@
 
 import { Content } from "./content";
 
-export interface notificationProps{
+export interface NotificationProps{
   recipientId:string;
   content: Content;
   category:string;
@@ -11,9 +11,9 @@ export interface notificationProps{
 }
 
 export class Notificacion {
-  private props : notificationProps;
+  private props : NotificationProps;
 
-  constructor(props : notificationProps) {
+  constructor(props : NotificationProps) {
     this.props = props; 
     }
 
