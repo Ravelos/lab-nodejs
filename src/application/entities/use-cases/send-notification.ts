@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { NotificationRespository } from "src/application/repositories/notification-repository";
+import { NotificationRespository } from "src/application/repositories/notifications-repository";
 import { Content } from "../content";
 import { Notification } from "../notification";
 
