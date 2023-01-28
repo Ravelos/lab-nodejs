@@ -7,6 +7,7 @@ import { CancelNotification } from './cancel-notification';
 
 
 describe('Cancel notification', () =>{
+    
 
     it('should cancel a notification',async () =>{
         const notificationsRepository = new InMemoryNotificationsRepository();
@@ -26,5 +27,16 @@ describe('Cancel notification', () =>{
         });
 
         expect(notificationsRepository.notifications[0].canceleAt).toBeTruthy;
+    });
+
+    it('should not be able to cancel a non existing notification',async () =>{
+        const notificationsRepository = new InMemoryNotificationsRepository();
+        const cancelNotification = new CancelNotification(notificationsRepository);
+        
+        expect(()=>{
+            return cancelNotification.execute({
+                notificationId:'fake-notification-id',
+            });
+        }).rejects.toThrow();
     });
 });
