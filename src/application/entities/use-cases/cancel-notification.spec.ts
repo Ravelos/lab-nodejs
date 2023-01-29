@@ -3,6 +3,7 @@ import { InMemoryNotificationsRepository } from '../../../../test/repositories/i
 import { Content } from '../content';
 import { Notification } from '../notification';
 import { CancelNotification } from './cancel-notification';
+import { NotificationNotFound } from './errors/notification-not-found';
 
 
 
@@ -37,6 +38,6 @@ describe('Cancel notification', () =>{
             return cancelNotification.execute({
                 notificationId:'fake-notification-id',
             });
-        }).rejects.toThrow();
+        }).rejects.toThrow(NotificationNotFound);
     });
 });
