@@ -10,6 +10,12 @@ import { PrismaService } from "../prisma.service";
 export class PrismaNotificationsRepository implements NotificationsRespository{    
 
     constructor(private prismaService:PrismaService){}
+    save(notification: Notification): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
+    countManyByRecipientId(recipientId: string): Promise<number> {
+        throw new Error("Method not implemented.");
+    }
     findById(notificationId: string): Promise<Notification | null> {
         throw new Error("Method not implemented.");
     }
