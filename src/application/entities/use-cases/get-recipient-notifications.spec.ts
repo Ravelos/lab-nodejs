@@ -1,18 +1,16 @@
 /* eslint-disable prettier/prettier */
 import { makeNotification } from '@test/factories/notifications-factory';
 import { InMemoryNotificationsRepository } from '../../../../test/repositories/in-memory-notifications-repository';
-import { Content } from '../content';
-import { Notification } from '../notification';
-import { CountRecipientNotification } from './count-recipient-notifications';
+import { GetRecipientNotification } from './get-recipient-notifications';
 
 
 
-describe('Count recipient notifications', () =>{
+describe('Get recipient notifications', () =>{
     
 
-    it('should be able to count recipient notifications',async () =>{
+    it('should be able to get recipient notifications',async () =>{
         const notificationsRepository = new InMemoryNotificationsRepository();
-        const getRecipientNotification = new CountRecipientNotification(notificationsRepository);
+        const getRecipientNotification = new GetRecipientNotification(notificationsRepository);
 
         await notificationsRepository.create(makeNotification({recipientId: 'recipient01'}));
 
@@ -20,10 +18,14 @@ describe('Count recipient notifications', () =>{
 
         await notificationsRepository.create(makeNotification({recipientId: 'recipient02'}));
 
-      const { count } = await countRecipientNotification.execute({
+      const { notifications } = await getRecipientNotification.execute({
         recipientId: 'recipient01'
       })
 
-        expect(count).toEqual(2);
+        expect(notifications).toHaveLength(2);
+        expect(notifications).toEqual(expect.arrayContaining([
+          expect.objectContaining({ recipientId: 'recipientId-1' }),
+          expect.objectContaining({ recipientId: 'recipientId-1' })
+        ]));
     });
 });
