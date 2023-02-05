@@ -15,8 +15,8 @@ export class Notification {
   private _id:string;
   private props : NotificationProps;
 
-  constructor(props : NotificationProps) {
-    this._id = randomUUID();
+  constructor(props : NotificationProps, id ? :string) {
+    this._id = id ?? randomUUID();
     this.props = props;
     }
 
