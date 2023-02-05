@@ -13,30 +13,10 @@ export declare class NotificationsController {
     private countFromNotification;
     private getRecipientNotifications;
     constructor(sendNotification: SendNotification, cancelNotification: CancelNotification, readNotification: ReadNotification, unreadNotification: UnreadNotification, countFromNotification: CountRecipientNotification, getRecipientNotifications: GetRecipientNotification);
-    cancel(id: string): Promise<void>;
-    countFromRecipient(recipientId: string): Promise<{
-        count: number;
-    }>;
-    getFromRecipient(recipientId: string): Promise<{
-        notifications: {
-            id: string;
-            category: string;
-            content: string;
-            recipientId: string;
-            readAt: Date | null | undefined;
-            createdAt: Date;
-        }[];
-    }>;
-    read(id: string): Promise<void>;
-    unread(id: string): Promise<void>;
-    create(body: CreateNotificationBody): Promise<{
-        notification: {
-            id: string;
-            category: string;
-            content: string;
-            recipientId: string;
-            readAt: Date | null | undefined;
-            createdAt: Date;
-        };
-    }>;
+    cancel(id: string): any;
+    countFromRecipient(recipientId: string): unknown;
+    getFromRecipient(recipientId: string): unknown;
+    read(id: string): any;
+    unread(id: string): any;
+    create(body: CreateNotificationBody): unknown;
 }

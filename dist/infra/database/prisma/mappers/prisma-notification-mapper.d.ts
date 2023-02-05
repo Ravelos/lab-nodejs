@@ -6,7 +6,7 @@ export declare class PrismaNotificationMappers {
         category: string;
         content: string;
         recipientId: string;
-        readAt: Date | null | undefined;
+        readAt: any;
         createdAt: Date;
     };
     static toDomain(raw: RawNotification): Notification;

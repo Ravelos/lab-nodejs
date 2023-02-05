@@ -5,7 +5,7 @@ export declare class NotificationViewModel {
         category: string;
         content: string;
         recipientId: string;
-        readAt: Date | null | undefined;
+        readAt: any;
         createdAt: Date;
     };
 }
