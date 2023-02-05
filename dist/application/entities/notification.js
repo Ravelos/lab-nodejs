@@ -1,14 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Notification = void 0;
-const node_crypto_1 = require("node:crypto");
 class Notification {
-    constructor(props, id) {
-        this._id = id !== null && id !== void 0 ? id : (0, node_crypto_1.randomUUID)();
+    constructor(props) {
         this.props = props;
-    }
-    get id() {
-        return this._id;
     }
     get recipientId() {
         return this.props.recipientId;
@@ -31,17 +26,8 @@ class Notification {
     get readAt() {
         return this.props.readAt;
     }
-    read() {
-        this.props.readAt = new Date();
-    }
-    unread() {
-        this.props.readAt = null;
-    }
-    get canceleAt() {
-        return this.props.canceledAt;
-    }
-    cancel() {
-        this.props.canceledAt = new Date();
+    set readAt(readAt) {
+        this.props.readAt = readAt;
     }
     get createdAt() {
         return this.props.createdAt;
