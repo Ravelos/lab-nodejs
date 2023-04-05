@@ -10,6 +10,7 @@ To get started, you can either scaffold the project with the Nest CLI, or clone 
 `nest new project-name`
 
 Running the application:
+
 This command starts the app with the HTTP server listening on the port defined in the src/main.ts file. Once the application is running, open your browser and navigate to http://localhost:3000/. You should see the Hello World! message.
 
 `npm run start`
